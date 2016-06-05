@@ -12,7 +12,7 @@ const TARGET = process.env.npm_lifecycle_event;
 
 const PATHS = {
 	app: path.join(__dirname, '../src'),
-	build: path.join(__dirname, '../static'),
+	build: path.join(__dirname, '../dist'),
 };
 
 process.env.BABEL_ENV = TARGET;
