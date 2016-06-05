@@ -1,25 +1,34 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import User from '../components/User'
+import Page from '../components/Page'
+import * as pageActions from '../actions/PageActions'
 
-export default class App extends Component{
-	render(){
-		const {user} = this.props.user
-		const {photos, year} = this.props.page
-		
-		return(
-			<div>
-			<h2>I am from App {user}</h2>
-			<h2> There are {photos.length} on {year} </h2>
-			</div>
-		)
-	}
+class App extends Component {
+  render() {
+    const { user, page } = this.props //Загоняем данные в компонент
+    const { setYear, setDay, plusNumber} = this.props.pageActions //Прокидываем dispatch к action
+	return <div>
+      <User name={user.name} />
+      <Page photos={page.photos} year={page.year} day={page.day} res={page.res} setYear={setYear} setDay={setDay} plusNumber={plusNumber} />
+    </div>
+  }
 }
-	function mapStateToProps (state){
-		return{
-			user: state.user,
-			page: state.page
-			
-		}
-	}
 
-export default connect(mapStateToProps)(App)
+function mapStateToProps(state) { //Метод изменяющий state
+  return {
+    user: state.user, //Парсим данные принятые из reducer
+    page: state.page
+  }
+}
+
+function mapDispatchToProps(dispatch) { //Метод отправляющий данные в ActionCreators функции. Тоесть отправляем дейсвие dispatch action
+  return { 
+    pageActions: bindActionCreators(pageActions, dispatch)
+   
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
