@@ -18,7 +18,7 @@ export default class Page extends Component {
 		this.props.plusNumber(first, second);
   }
   render() {
-	const { year, photos, day, res } = this.props
+	const { year, photos, day, res, fetching } = this.props
 	return <div>
 	<p>
 		<button onClick={::this.onYearBtnClick}>2016</button>
@@ -26,7 +26,13 @@ export default class Page extends Component {
 		<button onClick={::this.onYearBtnClick}>2014</button>
 	</p>
 		<h3>{year} год</h3>  {/* Отображаем данные из контейнера*/}
-	<p>У тебя {photos.length} фото.</p>
+		{
+			fetching ? 
+			<p>Загрузка....</p>
+			:
+			<p>У тебя {photos.length} фото.</p>
+		}
+	
 	<p>
 		<button onClick={::this.onDayBtnClick}>Monday</button>
 		<button onClick={::this.onDayBtnClick}>Thusday</button>
@@ -46,6 +52,7 @@ Page.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array.isRequired,
   day: PropTypes.string.isRequired,
+  fetching: PropTypes.bool.isRequired,
   setDay: PropTypes.func.isRequired,
   requestPhotos: PropTypes.func.isRequired
 }

@@ -11,7 +11,15 @@ class App extends Component {
     const { requestPhotos, setDay, plusNumber} = this.props.pageActions //Прокидываем dispatch к action
 	return <div>
       <User name={user.name} />
-      <Page photos={page.photos} year={page.year} day={page.day} res={page.res} requestPhotos={requestPhotos} setDay={setDay} plusNumber={plusNumber} />
+      <Page
+		photos={page.photos}
+		year={page.year}
+		day={page.day}
+		res={page.res}
+		fetching={page.fetching}
+		requestPhotos={requestPhotos}
+		setDay={setDay}
+		plusNumber={plusNumber} />
     </div>
   }
 }
