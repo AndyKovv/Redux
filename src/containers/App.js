@@ -8,10 +8,10 @@ import * as pageActions from '../actions/PageActions'
 class App extends Component {
   render() {
     const { user, page } = this.props //Загоняем данные в компонент
-    const { setYear, setDay, plusNumber} = this.props.pageActions //Прокидываем dispatch к action
+    const { requestPhotos, setDay, plusNumber} = this.props.pageActions //Прокидываем dispatch к action
 	return <div>
       <User name={user.name} />
-      <Page photos={page.photos} year={page.year} day={page.day} res={page.res} setYear={setYear} setDay={setDay} plusNumber={plusNumber} />
+      <Page photos={page.photos} year={page.year} day={page.day} res={page.res} requestPhotos={requestPhotos} setDay={setDay} plusNumber={plusNumber} />
     </div>
   }
 }

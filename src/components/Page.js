@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 
 export default class Page extends Component {
   onYearBtnClick(e) {
-	this.props.setYear(+e.target.innerText) //Для изменения данных необходимо вызвать callback из props.
+	this.props.requestPhotos(+e.target.innerText) //Для изменения данных необходимо вызвать callback из props.
 											//Прокидываем значение в контейнер
   }
   onDayBtnClick(e){
@@ -47,5 +47,5 @@ Page.propTypes = {
   photos: PropTypes.array.isRequired,
   day: PropTypes.string.isRequired,
   setDay: PropTypes.func.isRequired,
-  setYear: PropTypes.func.isRequired
+  requestPhotos: PropTypes.func.isRequired
 }

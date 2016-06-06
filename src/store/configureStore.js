@@ -9,6 +9,7 @@ export default function configureStore(initialState) {
 	const logger = createLogger()
 	const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
 
+	
   if (module.hot) {
     module.hot.accept('../reducers', () => {
       const nextRootReducer = require('../reducers')
