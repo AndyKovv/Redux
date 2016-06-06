@@ -2,7 +2,8 @@ import {SET_YEAR, SET_DAY, NUMBER_PLUS} from '../constants/Page'
 const initialState = {
   year: 2016,
   photos: [],
-  day: 'Monday'
+  day: 'Monday',
+  fetching: false
 }
 
 export default function page(state = initialState, action) {

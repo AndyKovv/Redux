@@ -1,3 +1,5 @@
 export const SET_YEAR = 'SET_YEAR'
 export const SET_DAY = 'SET_DAY'
 export const NUMBER_PLUS = 'NUMBER_PLUS'
+export const GET_PHOTOS_REQUEST = 'GET_PHOTOS_REQUEST'
+export const GET_PHOTOS_SUCCESS = 'GET_PHOTOS_SUCCESS'
